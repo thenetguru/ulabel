@@ -7,8 +7,11 @@ class m000000_000060_history extends CDbMigration
     $this->createTable("{{History}}", array(
       "id" => "pk",
       "labelID" => "int(10)",
-      "dispatchDate" => "date",
-      "arrivalDate" => "date"
+      "localDispatchDate" => "datetime DEFAULT NULL",
+      "localArrivalDate" => "datetime DEFAULT NULL",
+      "gmtDispatchDate" => "datetime DEFAULT NULL",
+      "gmtArrivalDate" => "datetime DEFAULT NULL",
+      "message" => "varchar(50) DEFAULT NULL"
     ));
 
     $this->addForeignKey("fk_history_1", "{{History}}", "labelID", "{{Label}}", "id", "cascade", "cascade");
